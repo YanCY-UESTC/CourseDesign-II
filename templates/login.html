@@ -15,15 +15,17 @@
             <div>$客户价值分析介绍$</div>
             <h1>hello world!</h1>
             <form method="post" action="" class="login">
-                <div>用户登录</div>
                 <input type="text" placeholder="username" name="username" id="username">
                 <input type="password" placeholder="password" name="password" id="password">
-                <button type="submit">登录</button>
+                <button type="submit">确认</button>
             </form>
         </div>
         <div>团队介绍</div>
         <div>版权信息</div>
-        <a href="../login">登录</a>
+        {% if (failed == "用户登录") or (failed == "登录失败，请重新登录") %}
         <a href="../newuser">注册</a>
+        {% else %}
+        <a href="../login">登录</a>
+        {% endif %}
     </body>
 </html>
