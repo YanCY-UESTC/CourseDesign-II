@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<!-- {{success}}{{ ncols }}{{nrows}}{{tlist}}-->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>综合设计Ⅱ</title>
+    <link rel="stylesheet" type="text/css" href="static\result\result.css">
+    <script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class="header">基于LRFMC的客户价值分析<a href="../logout" class="exit">登出</a></div>
+    {% if success == "true" %}
+    <div class="content">
+      <div class="content_1">
+        <div class="cname"><span class="cn">&nbsp;&nbsp;类别说明&nbsp;&nbsp;<span class="cnline"></span></span></div>
+        <div class="excel">
+          <table class="table table-bordered">
+            <caption class="tab_title">客户价值分析各类别说明</caption>
+            <tr>
+              <th>标签</th>
+              <th>数量</th>
+              <th>ZL</th>
+              <th>ZR</th>
+              <th>ZF</th>
+              <th>ZM</th>
+              <th>ZC</th>
+              <th>客户类型</th>
+            </tr>
+            {% for n in range(1,nrows) %}
+            <tr>
+                {% for m in range(ncols) %}
+                    <td>{{ tList[n][m] }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+          </table>
+        </div>
+        <p class="excel_inst">该表是可能就开始晚上必须尽快我不想既往不咎哦你看了你看下你看下柯南柯南相爱了你想看i的呢可能性的跨学科物理学科我内心饿哦麦卡锡老师联系你来自哪里呢为了那些老外哦此外hi黑长裤不可违背五年可能我看你看</p>
+      </div>
+      <div class="content_2">
+        <div class="cname"><span class="cn">&nbsp;&nbsp;其他图表&nbsp;&nbsp;<span class="cnline"></span></span></div>
+        <div class="nav">
+          <ul>
+            <li><a href="/static/userfile/center_line.svg" onclick="showSVG1(this); return false;">聚类中心指标</a></li>
+            <li><a href="/static/userfile/count_bar.svg" onclick="showSVG1(this); return false;">各类别数量统计</a></li>
+            <li><a href="###">各类客户数据+</a>
+              <ul>
+                {% for i in range(1,nrows) %}
+                <li><a href="###">{{i}}类客户+</a>
+                  <ul>
+                    <li><a href="###" onclick="showSVG(this,i);" class="ZL">{{i}}类客户ZL密度图</a></li>
+                    <li><a href="###" onclick="showSVG(this,i);" class="ZR">{{i}}类客户ZR密度图</a></li>
+                    <li><a href="###" onclick="showSVG(this,i);" class="ZM">{{i}}类客户ZM密度图</a></li>
+                    <li><a href="###" onclick="showSVG(this,i);" class="ZF">{{i}}类客户ZF密度图</a></li>
+                    <li><a href="###" onclick="showSVG(this,i);" class="ZC">{{i}}类客户ZC密度图</a></li>
+                  </ul>
+                </li>
+                {% endfor %}
+              </ul>
+            </li>
+
+          </ul>
+        </div>
+        <iframe src="" id="placeholder" frameborder='0'></iframe>
+
+      </div>
+      <div class="content_3">
+        <div class="cname"><span class="cn">&nbsp;&nbsp;文件下载&nbsp;&nbsp;<span class="cnline"></span></span></div>
+        <div class="download">
+            <a class="dloadbtn" href="static/userfile/download.zip" >下载结果</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="group">团队介绍</div>
+      <div class="cpright">版权信息</div>
+    </div>
+    {% else %}
+    <div class="wait">处理中……</div>
+    <div class="footer_w">
+      <div class="group">团队介绍</div>
+      <div class="cpright">版权信息</div>
+    </div>
+    {% endif %}
+
+    <script type="text/javascript">
+      function showSVG1(whichsvg){
+        var source = whichsvg.getAttribute("href");
+        var placeholder = document.getElementById("placeholder");
+        placeholder.style.display="block";
+        placeholder.setAttribute("src",source);
+      }
+      function showSVG(whichsvg,i){
+        var classname = whichsvg.className;
+        var source = "webDown\test\test\userfile\" + i + "_" + classname + "_density_xy.svg";
+        var placeholder = document.getElementById("placeholder");
+        placeholder.setAttribute("src",source);
+      }
+
+    </script>
+  </body>
+</html>

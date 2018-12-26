@@ -2,14 +2,48 @@
     <head>
         <meta charset="utf-8">
         <title>综合课程设计II</title>
+        <link rel="stylesheet" type="text/css" href="static\input\input.css" media="screen">
+        <script src="http://cdn.static.runoob.com/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script type="text/javascript" src="static/index/index.js"></script>
     </head>
     <body>
-        <h1>Step{{step}}:</h1>
-        <div>文件上传</div>
-        <form enctype="multipart/form-data" method="POST">
-   <p>选中文件: <input type="file" name="filename" /></p>
-   <p><input type="submit" value="upload" /></p>
-   </form>
-    <a href="../logout">登出</a>
+        <div class="header">基于LRFMC的客户价值分析</div>
+        <div class="content">
+            <div class="cname"><span class="cn">&nbsp;&nbsp;{{file}}&nbsp;&nbsp;<span class="cnline"></span></span></div>
+            <form enctype="multipart/form-data" method="POST">
+              <div class="fileinput">
+                <span class="which">客户数据文件：</span>
+                <input class="filename" type="file" name="filename" >
+              </div>
+              <div class="choose">
+                  <span class="which">需要客户分类数：</span>
+                  <label><input type="radio" name="knum" value="4" checked>4类客户 </label>
+                  <label><input type="radio" name="knum" value="5">5类客户</label>
+                  <label><input type="radio" name="knum" value="6">6类客户</label>
+                  <label><input type="radio" name="knum" value="8">8类客户</label>
+              </div>
+              <button class="sub" type="submit" >确认</button>
+            </form>
+            <input type="hidden" name="radioValue" id="radioValue">
+            <a href="../logout" class="exit">登出</a>
+        </div>
+        <div class="footer">
+            <div class="group">团队介绍</div>
+            <div class="cpright">版权信息</div>
+        </div>
+        <script type="application/javascript">
+
+            function fn(){
+                 var rds = document.getElementsByName("knum"),
+                     hrd = document.getElementById("radioValue");
+                 for (var i=0;i<rds.length;i++){
+                     var rd = rds[i];
+                     if (rd.checked){
+                         hrd.value = rd.getAttribute("id");
+                         break;
+                     }
+                 }
+            }
+        </script>
     </body>
 </html>

@@ -1,32 +1,37 @@
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>综合课程设计II</title>
-    </head>
-    <body>
-        <h1>Step2:</h1>
-        <div>分类数量</div>
-        <form method="post">
-            <div>确认K值：</div>
-            <input type="text" name="K" value="4" placeholder="默认值：4，只能输入整数" oninput="value=value.replace(/[^\d]/g,'')">
-            <h1>Step3:</h1>
-            <div>确认可视化结果格式：</div>
-            <div>
-                <div>在网页上展示</div>
-                <label><input type="checkbox" name="show" value="1">用户价值分类特征（表格） </label>
-                <label><input type="checkbox" name="show" value="2">用户价值分类特征（图像） </label>
-                <div>下载文件展示</div>
-                <label><input type="checkbox" name="show" value="3">用户价值分类特征(Excel) </label>
-                <label><input type="checkbox" name="show" value="4">用户价值分类特征(CSV表格) </label>
-                <label><input type="checkbox" name="show" value="5">用户价值分类特征（svg图像）</label>
-                <label><input type="checkbox" name="show" value="6">用户分类结果（Excel）</label>
-                <label><input type="checkbox" name="show" value="3">用户价值分类特征（CSV表格） </label>
-                
-            </div>
-            <button type="submit">确认</button>
-        </form>
-        <a href="../logout">退出登录</a>
-   
-
-    </body>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>综合设计Ⅱ</title>
+    <link rel="stylesheet" type="text/css" href="static/var/var.css">
+  </head>
+  <body>
+    <div class="header">基于LRFMC的客户价值分析</div>
+    <div class="content">
+      <div class="cname">&nbsp;&nbsp;选择<span class="cnline"></span></div>
+      <form  method="post">
+        <span class="num">类别数量：</span>
+        <input class="numin" type="text" name="K" value="4" placeholder="默认值：4，只能输入整数" oninput="value=value.replace(/[^\d]/g,'')">
+        <div class="conshow">显示内容：</div>
+        <div>
+            <p>在网页上展示</p>
+            <label><input type="checkbox" name="show" value="1">用户价值分类特征（表格） </label>
+            <label><input type="checkbox" name="show" value="2">用户价值分类特征（图像） </label>
+            <p>下载文件展示</p>
+            <label><input type="checkbox" name="show" value="3">用户价值分类特征(Excel) </label>
+            <label><input type="checkbox" name="show" value="4">用户价值分类特征(CSV表格) </label>
+            <label><input type="checkbox" name="show" value="5">用户价值分类特征（svg图像）</label>
+            <label><input type="checkbox" name="show" value="6">用户分类结果（Excel）</label>
+            <label><input type="checkbox" name="show" value="3">用户价值分类特征（CSV表格） </label>
+        </div>
+        <button class="sub" type="submit">确认</button>
+      </form>
+      <a href="../logout" class="exit">登出</a>
+    </div>
+    <div class="result"></div>
+    <div class="footer">
+      <div class="group">团队介绍</div>
+      <div class="cpright">版权信息</div>
+    </div>
+  </body>
 </html>
